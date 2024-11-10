@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3xto7x7f2nmn"]
+
+[ext_resource type="Script" path="res://Player/player_character.gd" id="1_cynwj"]
+[ext_resource type="Texture2D" uid="uid://bp8hy1sju17aj" path="res://Player/GreenRectSprite-001.png" id="1_x7hgb"]
+[ext_resource type="PackedScene" uid="uid://co6o88h72qbsd" path="res://Player/Weapons/sword.tscn" id="3_o5xdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isc05"]
+size = Vector2(12.469, 12.9757)
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+script = ExtResource("1_cynwj")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_x7hgb")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.34666)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_isc05")
+
+[node name="Sword" parent="." instance=ExtResource("3_o5xdw")]
+position = Vector2(0, 4)
