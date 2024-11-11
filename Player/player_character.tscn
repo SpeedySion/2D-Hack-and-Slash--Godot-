@@ -16,8 +16,9 @@ texture = ExtResource("1_x7hgb")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.34666)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_isc05")
 
 [node name="Sword" parent="." instance=ExtResource("3_o5xdw")]
 position = Vector2(0, 4)
+
+[node name="WeaponSpawnMarker" type="Marker2D" parent="."]

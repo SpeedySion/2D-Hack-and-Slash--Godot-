@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-var player_inputs = ["Up", "Left", "Down", "Right", "LeftClick"]
+#var player_inputs = ["Up", "Left", "Down", "Right", "LeftClick"]
+@export var speed = 300
+var player_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,5 +11,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	velocity = Vector2.ZERO
-	
+	_get_input()
+
+
+func _get_input():
+	#Movement script
+	var direction = Input.get_vector("Left", "Right", "Up", "Down")
+	velocity = direction * speed
+	move_and_slide()
+	#Sets movement state
+	if direction.x == 0 and direction.y == 0:
+		player_state = "idle"
+	elif direction.x != 0 or direction.y != 0:
+		player_state ="walking"

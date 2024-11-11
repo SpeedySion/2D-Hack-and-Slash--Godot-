@@ -17,6 +17,15 @@ texture = ExtResource("1_ddvxo")
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(7, -6)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_8paxc")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="area_exited" from="AttackArea" to="." method="_on_attack_area_area_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
