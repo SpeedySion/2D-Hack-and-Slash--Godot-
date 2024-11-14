@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0fnqjf1wu6y5"]
+[gd_scene load_steps=3 format=3 uid="uid://c0fnqjf1wu6y5"]
 
 [ext_resource type="PackedScene" uid="uid://d3xto7x7f2nmn" path="res://Player/player_character.tscn" id="1_6gsw2"]
-[ext_resource type="Texture2D" uid="uid://dwv00wylmrx4f" path="res://Enemies/RedRectSprite-001.png" id="2_48ptl"]
-[ext_resource type="Script" path="res://Scenes/TestEnemy.gd" id="2_vtgdr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_70mpl"]
+[ext_resource type="PackedScene" uid="uid://bweigxqeoetqb" path="res://Enemies/test_enemy.tscn" id="2_pcw7s"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -25,22 +22,4 @@ scale = Vector2(6, 6)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="TestEnemy" type="Node2D" parent="Enemies"]
-position = Vector2(407, 285)
-scale = Vector2(6, 6)
-script = ExtResource("2_vtgdr")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemies/TestEnemy"]
-texture_filter = 1
-position = Vector2(-0.333332, -0.166668)
-texture = ExtResource("2_48ptl")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enemies/TestEnemy"]
-position = Vector2(-67.8333, -47.5)
-scale = Vector2(0.166667, 0.166667)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/TestEnemy/StaticBody2D"]
-position = Vector2(407, 285)
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_70mpl")
+[node name="TestEnemy" parent="Enemies" instance=ExtResource("2_pcw7s")]

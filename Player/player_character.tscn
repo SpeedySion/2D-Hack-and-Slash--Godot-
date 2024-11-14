@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3xto7x7f2nmn"]
+[gd_scene load_steps=7 format=3 uid="uid://d3xto7x7f2nmn"]
 
 [ext_resource type="Script" path="res://Player/player_character.gd" id="1_cynwj"]
 [ext_resource type="Texture2D" uid="uid://bp8hy1sju17aj" path="res://Player/GreenRectSprite-001.png" id="1_x7hgb"]
 [ext_resource type="PackedScene" uid="uid://co6o88h72qbsd" path="res://Player/Weapons/sword.tscn" id="3_o5xdw"]
+[ext_resource type="Script" path="res://NewNodes/HurtBox.gd" id="4_3v1di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isc05"]
 size = Vector2(12.469, 12.9757)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcpqq"]
+size = Vector2(10, 12)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
 script = ExtResource("1_cynwj")
@@ -18,7 +22,14 @@ texture = ExtResource("1_x7hgb")
 position = Vector2(0, 2.34666)
 shape = SubResource("RectangleShape2D_isc05")
 
-[node name="Sword" parent="." instance=ExtResource("3_o5xdw")]
+[node name="WeaponSpawnMarker" type="Marker2D" parent="."]
+
+[node name="Sword" parent="WeaponSpawnMarker" instance=ExtResource("3_o5xdw")]
 position = Vector2(0, 4)
 
-[node name="WeaponSpawnMarker" type="Marker2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("4_3v1di")
+
+[node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_rcpqq")
