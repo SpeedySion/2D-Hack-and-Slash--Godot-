@@ -8,11 +8,13 @@ func _init():
 
 
 func _ready():
+	#self.area_entered.connect(_on_area_entered)
 	area_entered.connect(_on_area_entered)
 
 
-func _on_area_entered(hitbox:= HitBox):
-	if HitBox == null:
-		return
-	if owner.has_method("_take_damage"):
-		owner._take_damage(hitbox.damage)
+func _on_area_entered(hitbox):
+	if hitbox is HitBox:
+		if hitbox == null:
+			return
+		if owner.has_method("_take_damage"):
+			owner._take_damage(hitbox.damage)

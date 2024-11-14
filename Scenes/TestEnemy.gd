@@ -15,8 +15,6 @@ func _process(delta):
 
 func _take_damage(damage):
 	health -= damage
-	if health < 0:
+	if health <= 0:
 		health = 0
-		print("I am dead")
-	print("I've taken damage")
 	$AnimationPlayer.play("damaged")

@@ -30,10 +30,10 @@ tracks/1/path = NodePath("SwordSprite/HitBox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_6kt5o"]
@@ -85,7 +85,6 @@ script = ExtResource("3_3g62h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordSprite/HitBox"]
 position = Vector2(0.25, -0.25)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yh1c3")
 disabled = true
 
