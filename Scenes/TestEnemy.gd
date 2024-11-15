@@ -14,7 +14,10 @@ func _process(delta):
 
 
 func _take_damage(damage):
+	#print(health , " - ", damage, " = ")
 	health -= damage
+	#print(health)
 	if health <= 0:
 		health = 0
-	$AnimationPlayer.play("damaged")
+		queue_free()
+	$AnimationPlayer.play("Damaged")
