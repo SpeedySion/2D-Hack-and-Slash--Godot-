@@ -4,9 +4,12 @@ extends CharacterBody2D
 @export var speed = 300
 var player_state
 
+var sword_scene = load("res://Player/Weapons/sword.tscn")
+var sword_instance = sword_scene.instantiate()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	add_child(sword_instance)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
