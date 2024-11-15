@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 #var player_inputs = ["Up", "Left", "Down", "Right", "LeftClick"]
 @export var speed = 300
-var player_state
 
 var sword_scene = load("res://Player/Weapons/sword.tscn")
 var sword_instance = sword_scene.instantiate()
+
+var weapons = [sword_instance]
+var current_weapon = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +24,7 @@ func _get_input():
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = direction * speed
 	move_and_slide()
-	#Sets movement state
-	if direction.x == 0 and direction.y == 0:
-		player_state = "idle"
-	elif direction.x != 0 or direction.y != 0:
-		player_state ="walking"
+	#if Input.is_action_just_pressed()
+	var weapon_swap = Input.get_axis("WeaponSwapLeft", "WeaponSwapRight")
+	current_weapon += weapon_swap
+	print(current_weapon)

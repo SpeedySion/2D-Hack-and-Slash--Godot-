@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bweigxqeoetqb"]
+[gd_scene load_steps=10 format=3 uid="uid://bweigxqeoetqb"]
 
 [ext_resource type="Script" path="res://Scenes/TestEnemy.gd" id="1_dqilx"]
 [ext_resource type="Texture2D" uid="uid://dwv00wylmrx4f" path="res://Enemies/RedRectSprite-001.png" id="2_fle1a"]
 [ext_resource type="Script" path="res://NewNodes/HurtBox.gd" id="3_62os6"]
+[ext_resource type="Script" path="res://NewNodes/HitBox.gd" id="4_yxw2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bocqv"]
 size = Vector2(10, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hily"]
+size = Vector2(10.3333, 11.6667)
 
 [sub_resource type="Animation" id="Animation_8dnpn"]
 resource_name = "Damaged"
@@ -86,6 +90,13 @@ script = ExtResource("3_62os6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_bocqv")
+
+[node name="HitBox" type="Area2D" parent="Sprite2D"]
+script = ExtResource("4_yxw2h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitBox"]
+position = Vector2(0, 2.16667)
+shape = SubResource("RectangleShape2D_4hily")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
