@@ -2,7 +2,7 @@ extends Node2D
 
 @export var maxhealth := 100
 @export var health = maxhealth
-@export var speed := 200
+@export var speed := 150
 var hitstunned := false
 
 signal TAKENDAMAGE(health)
@@ -19,12 +19,12 @@ func _process(delta):
 
 
 func _take_damage(damage):
-	TAKENDAMAGE.emit(health)
 	hitstunned = true
 	health -= damage
 	if health <= 0:
 		health = 0
 		queue_free()
+	TAKENDAMAGE.emit(health)
 	$AnimationPlayer.play("Damaged")
 	await $AnimationPlayer.animation_finished
 	hitstunned = false
