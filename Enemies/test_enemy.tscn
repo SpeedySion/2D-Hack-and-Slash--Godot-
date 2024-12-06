@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bweigxqeoetqb"]
+[gd_scene load_steps=11 format=3 uid="uid://bweigxqeoetqb"]
 
 [ext_resource type="Script" path="res://Scenes/TestEnemy.gd" id="1_dqilx"]
 [ext_resource type="Texture2D" uid="uid://dwv00wylmrx4f" path="res://Enemies/RedRectSprite-001.png" id="2_fle1a"]
 [ext_resource type="Script" path="res://NewNodes/HurtBox.gd" id="3_62os6"]
 [ext_resource type="Script" path="res://NewNodes/HitBox.gd" id="4_yxw2h"]
+[ext_resource type="Script" path="res://NewNodes/HealthBar.gd" id="5_vqod2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bocqv"]
 size = Vector2(10, 12)
@@ -103,3 +104,15 @@ libraries = {
 "": SubResource("AnimationLibrary_fuu8o")
 }
 autoplay = "RESET"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -9.0
+offset_top = -11.0
+offset_right = 31.0
+offset_bottom = 29.0
+scale = Vector2(0.42, 0.0533335)
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("5_vqod2")
