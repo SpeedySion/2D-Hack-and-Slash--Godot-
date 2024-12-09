@@ -7,16 +7,17 @@ var hitstunned := false
 
 signal TAKENDAMAGE(health)
 
+var playerpath : Node = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#var player = get_node("res://Player/player_character.tscn")
-	pass
+	playerpath = get_node("/root/TestScene/Player/PlayerCharacter") 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not hitstunned:
-		position = position.move_toward($"../../Player/PlayerCharacter".get_global_position(), delta * speed)
-
+		position = position.move_toward(playerpath.get_global_position(), delta * speed)
+		#$"../../Player/PlayerCharacter"
 
 func _take_damage(damage):
 	hitstunned = true

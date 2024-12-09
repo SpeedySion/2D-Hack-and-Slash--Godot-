@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3xto7x7f2nmn"]
+[gd_scene load_steps=7 format=3 uid="uid://d3xto7x7f2nmn"]
 
 [ext_resource type="Script" path="res://Player/player_character.gd" id="1_cynwj"]
 [ext_resource type="Texture2D" uid="uid://bp8hy1sju17aj" path="res://Player/GreenRectSprite-001.png" id="1_x7hgb"]
 [ext_resource type="Script" path="res://NewNodes/HurtBox.gd" id="4_3v1di"]
+[ext_resource type="Script" path="res://NewNodes/HealthBar.gd" id="4_idajn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_isc05"]
 size = Vector2(12.469, 12.9757)
@@ -29,3 +30,29 @@ script = ExtResource("4_3v1di")
 [node name="HurtBoxCollision" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_rcpqq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/UI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+script = ExtResource("4_idajn")

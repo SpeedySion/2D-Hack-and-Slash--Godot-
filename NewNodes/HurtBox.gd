@@ -15,5 +15,5 @@ func _on_area_entered(hitbox):
 	if hitbox is HitBox:
 		if hitbox == null:
 			return
-		if owner.has_method("_take_damage") and hitbox.owner != self.owner:
+		if owner.has_method("_take_damage") and !hitbox.owner.is_in_group("Enemies"):
 			owner._take_damage(hitbox.damage)

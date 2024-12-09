@@ -73,9 +73,8 @@ _data = {
 "RESET": SubResource("Animation_nf1os")
 }
 
-[node name="TestEnemy" type="Node2D"]
+[node name="TestEnemy" type="Node2D" groups=["Enemies"]]
 position = Vector2(407, 285)
-scale = Vector2(6, 6)
 script = ExtResource("1_dqilx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

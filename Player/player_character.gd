@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 #var player_inputs = ["Up", "Left", "Down", "Right", "LeftClick"]
 @export var speed = 300
+@export var maxhealth := 200
+@export var health = maxhealth
+
 
 var sword_scene = load("res://Player/Weapons/sword.tscn")
 var sword_instance = sword_scene.instantiate()
